@@ -4,19 +4,34 @@ $(document).ready( startApp );
 var someName= '';
 
 function startApp(){
-    getData();
+    getNameData();
+    getFoodData();
 }
 
-function getData(){
+function getNameData(){
     var settings = {
         url: '../server/getnames.json',
         method: 'GET',
         dataType: 'json',
-        success: handleDataFromServer
+        success: handleNameDataFromServer
     }
     $.ajax( settings );
 }
 
-function handleDataFromServer( response ){
+function getFoodData(){
+    var settings = {
+        url: '../server/getfavfoods.json',
+        method: 'GET',
+        dataType: 'json',
+        success: handleFoodDataFromServer
+    }
+    $.ajax( settings );   
+}
+
+function handleNameDataFromServer( response ){
+    console.log( response );
+}
+
+function handleFoodDataFromServer( response ){
     console.log( response );
 }
